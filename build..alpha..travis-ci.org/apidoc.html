@@ -1,0 +1,939 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/lastboy"
+
+    >package-script (v0.0.8)</a>
+</h1>
+<h4>Spawn external process in additional to the package install</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.package-script">module package-script</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.package-script.init">
+            function <span class="apidocSignatureSpan">package-script.</span>init
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.package-script.install">
+            function <span class="apidocSignatureSpan">package-script.</span>install
+            <span class="apidocSignatureSpan">(config, opt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.package-script.spawn">
+            function <span class="apidocSignatureSpan">package-script.</span>spawn
+            <span class="apidocSignatureSpan">(config, init, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.package-script.uninstall">
+            function <span class="apidocSignatureSpan">package-script.</span>uninstall
+            <span class="apidocSignatureSpan">(config, opt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">package-script.</span>Global</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">package-script.</span>Logger</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">package-script.</span>Utils</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.package-script.Global">module package-script.Global</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.package-script.Global.get">
+            function <span class="apidocSignatureSpan">package-script.Global.</span>get
+            <span class="apidocSignatureSpan">(key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.package-script.Global.set">
+            function <span class="apidocSignatureSpan">package-script.Global.</span>set
+            <span class="apidocSignatureSpan">(key, value)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.package-script.Logger">module package-script.Logger</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.package-script.Logger.log2file">
+            function <span class="apidocSignatureSpan">package-script.Logger.</span>log2file
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.package-script.Logger.logall">
+            function <span class="apidocSignatureSpan">package-script.Logger.</span>logall
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">package-script.Logger.</span>console</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.package-script.Utils">module package-script.Utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.package-script.Utils.isLinux">
+            function <span class="apidocSignatureSpan">package-script.Utils.</span>isLinux
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.package-script.Utils.now">
+            function <span class="apidocSignatureSpan">package-script.Utils.</span>now
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.package-script.init">module package-script.init</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.package-script.init.init">
+            function <span class="apidocSignatureSpan">package-script.</span>init
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.package-script.install">module package-script.install</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.package-script.install.install">
+            function <span class="apidocSignatureSpan">package-script.</span>install
+            <span class="apidocSignatureSpan">(config, opt)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.package-script.spawn">module package-script.spawn</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.package-script.spawn.spawn">
+            function <span class="apidocSignatureSpan">package-script.</span>spawn
+            <span class="apidocSignatureSpan">(config, init, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.package-script.uninstall">module package-script.uninstall</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.package-script.uninstall.uninstall">
+            function <span class="apidocSignatureSpan">package-script.</span>uninstall
+            <span class="apidocSignatureSpan">(config, opt)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.package-script" id="apidoc.module.package-script">module package-script</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.package-script.init" id="apidoc.element.package-script.init">
+        function <span class="apidocSignatureSpan">package-script.</span>init
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">init = function (config) {
+    return initialize(config)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        key;
+
+    if (config) {
+
+        for (key in defaults) {
+            globalutils.set(key, ( (key in config) ? config[key] :  defaults[key] ));
+            if (jsutils) {
+                jsutils.<span class="apidocCodeKeywordSpan">init</span>(config);
+            }
+        }
+    }
+}
+
+// Initialization
+(function() {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.package-script.install" id="apidoc.element.package-script.install">
+        function <span class="apidocSignatureSpan">package-script.</span>install
+        <span class="apidocSignatureSpan">(config, opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">install = function (config, opt) {
+
+    var me = this,
+        configvar = {},
+        callback,
+        init;
+
+    if (opt) {
+        init = (opt.init || undefined);
+        callback = (opt.callback || undefined);
+    } else {
+        opt = {};
+    }
+
+    configvar.action = &#x22;install&#x22;;
+    configvar.isinstalled = false;
+    configvar.config = config,
+    configvar.global = ((init &#x26;&#x26; &#x27;global&#x27; in init) ? init.global : false);
+    configvar.debug = opt.debug;
+    configvar.depth = opt.depth;
+
+    if (init) {
+        this.init(init);
+    }
+
+    _packageProcess(configvar, function() {
+        if (this.data &#x26;&#x26; _.isArray(this.data) &#x26;&#x26; this.data.length &#x3e; 0) {
+            me.spawn(this.data, init, function(){
+                if (callback) {
+                    callback.call(me);
+                }
+            });
+        } else {
+            if (callback) {
+                callback.call(me);
+            }
+
+        }
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+          command: &#x22;npm&#x22;,
+          args: [&#x22;install&#x22;, &#x22;-g&#x22;, &#x22;bower&#x22;]
+      }
+
+  ]);
+
+#### Or check the install/uninstall methods
+require(&#x27;package-script&#x27;).<span class="apidocCodeKeywordSpan">install</span>([
+        {
+            admin:false,
+            name: &#x22;q&#x22;
+        }
+    ], {callback: function() {
+        // callback functionality in here
+     });
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.package-script.spawn" id="apidoc.element.package-script.spawn">
+        function <span class="apidocSignatureSpan">package-script.</span>spawn
+        <span class="apidocSignatureSpan">(config, init, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">spawn = function (config, init, callback) {
+
+    var me = this;
+
+    // first initialize
+    if (init) {
+        this.init(init);
+    }
+
+    logger.log2file(&#x22;\n\n************ Package Script  ************************************* process id: &#x22; + process.pid);
+
+    if (config &#x26;&#x26; _.isArray(config)) {
+        commands = commands.concat(config);
+        size = commands.length;
+        if (size &#x3e; 0) {
+            install(commands, function() {
+                logger.logall(&#x22;[package-script] process completed, see pkgscript.log for more information&#x22;);
+                if (callback) {
+                    callback.call(me);
+                }
+            });
+        }
+
+    } else {
+        logger.logall(&#x22;[package-script] No valid configuration for &#x27;install&#x27; function, see the docs for more information &#x22;);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+ &#x22;scripts&#x22;: {
+    &#x22;install&#x22;: &#x22;node installer.js&#x22;
+  }
+
+#### Then, in your javascript file:
+
+require(&#x27;package-script&#x27;).<span class="apidocCodeKeywordSpan">spawn</span>([
+      {
+          command: &#x22;npm&#x22;,
+          args: [&#x22;install&#x22;, &#x22;-g&#x22;, &#x22;grunt-cli&#x22;]
+      },
+      {
+          command: &#x22;npm&#x22;,
+          args: [&#x22;install&#x22;, &#x22;-g&#x22;, &#x22;bower&#x22;]
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.package-script.uninstall" id="apidoc.element.package-script.uninstall">
+        function <span class="apidocSignatureSpan">package-script.</span>uninstall
+        <span class="apidocSignatureSpan">(config, opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">uninstall = function (config, opt) {
+
+    var me = this,
+        configvar = {},
+        callback,
+        init;
+
+    if (opt) {
+        init = (opt.init || undefined);
+        callback = (opt.callback || undefined);
+    } else {
+        opt = {};
+    }
+
+    configvar.action = &#x22;rm&#x22;;
+    configvar.isinstalled = true;
+    configvar.config = config,
+    configvar.global = ((init &#x26;&#x26; &#x27;global&#x27; in init) ? init.global : false);
+    configvar.debug = opt.debug;
+    configvar.depth = opt.depth;
+
+    if (init) {
+        this.init(init);
+    }
+
+    _packageProcess(configvar, function() {
+        if (this.data) {
+            me.spawn(this.data, init, function() {
+                if (callback) {
+                    callback.call(me);
+                }
+            });
+        }
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        args: [&#x22;--version&#x22;]
+    }
+]);
+}
+
+function test41() {
+var pkgscript = require(&#x27;./pkgscript.js&#x27;);
+pkgscript.<span class="apidocCodeKeywordSpan">uninstall</span>([
+    {
+        admin:true,
+        name: &#x22;bower&#x22;
+    },{
+        name: &#x22;grunt-cli&#x22;
+    }
+], {init: {global:true, log:true}});
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.package-script.Global" id="apidoc.module.package-script.Global">module package-script.Global</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.package-script.Global.get" id="apidoc.element.package-script.Global.get">
+        function <span class="apidocSignatureSpan">package-script.Global.</span>get
+        <span class="apidocSignatureSpan">(key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">get = function (key) {
+    return global.pkgscript[key];
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    _fs = require(&#x22;fs&#x22;);
+
+module.exports = function() {
+
+    var _stub = function(){};
+
+    function isLog() {
+return _global.<span class="apidocCodeKeywordSpan">get</span>(&#x22;log&#x22;);
+    }
+
+    return {
+
+console: (isLog() ? console : {log: _stub, error: _stub, warn: _stub} ),
+
+/**
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.package-script.Global.set" id="apidoc.element.package-script.Global.set">
+        function <span class="apidocSignatureSpan">package-script.Global.</span>set
+        <span class="apidocSignatureSpan">(key, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">set = function (key, value) {
+    global.pkgscript[key] = value;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+    var defaults = getDefaultInit(),
+        key;
+
+    if (config) {
+
+        for (key in defaults) {
+            globalutils.<span class="apidocCodeKeywordSpan">set</span>(key, ( (key in config) ? config[key] :  defaults[key] ));
+            if (jsutils) {
+                jsutils.init(config);
+            }
+        }
+    }
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.package-script.Logger" id="apidoc.module.package-script.Logger">module package-script.Logger</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.package-script.Logger.log2file" id="apidoc.element.package-script.Logger.log2file">
+        function <span class="apidocSignatureSpan">package-script.Logger.</span>log2file
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">log2file = function (data) {
+
+    if (!isLog()) {
+        return undefined;
+    }
+
+    try {
+        _fs.appendFileSync(&#x22;pkgscript.log&#x22;, (_utils.now() + &#x22;  &#x22; + data + &#x22;\n&#x22;), &#x22;utf8&#x22;);
+
+    } catch (e) {
+        console.error(_utils.now + &#x22; [package-script] Package Script, ERROR:&#x22;, e);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    logger.logall(log);
+});
+
+cprocess.stderr.on(&#x27;data&#x27;, function (data) {
+    if (data &#x26;&#x26; (new String(data)).indexOf(&#x22;npm ERR&#x22;) != -1) {
+        logger.logall(&#x27;Package Script : &#x27; + data);
+    } else {
+        logger.<span class="apidocCodeKeywordSpan">log2file</span>(&#x27;Package Script : &#x27; + data);
+    }
+});
+
+cprocess.on(&#x27;close&#x27;, function (code) {
+    logger.log2file(&#x27;Package Script Complete &#x27; + code);
+    next++;
+    if (next &#x3c; size) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.package-script.Logger.logall" id="apidoc.element.package-script.Logger.logall">
+        function <span class="apidocSignatureSpan">package-script.Logger.</span>logall
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">logall = function (msg) {
+
+    if (!isLog()) {
+        return undefined;
+    }
+
+    if (msg) {
+        console.log(_utils.now() + &#x22; &#x22; + msg);
+        this.log2file(msg);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+/**
+* Initialization functionality
+*/
+function init() {
+   var log = &#x22;Package Script installer Initialized ....&#x22;;
+   logger.<span class="apidocCodeKeywordSpan">logall</span>(log);
+
+   setSpawnObject();
+}
+
+/**
+* Run a single spawn operation according to the given configuration
+*
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.package-script.Utils" id="apidoc.module.package-script.Utils">module package-script.Utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.package-script.Utils.isLinux" id="apidoc.element.package-script.Utils.isLinux">
+        function <span class="apidocSignatureSpan">package-script.Utils.</span>isLinux
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isLinux = function () {
+    var platform = os.platform();
+    return (platform == &#x22;linux&#x22; || platform == &#x22;darwin&#x22;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+&#x22;use strict&#x22;;
+
+var logger = require(&#x22;./utils/Logger.js&#x22;),
+globalutils = require(&#x22;./utils/Global.js&#x22;),
+utils = require(&#x22;./utils/Utils.js&#x22;),
+_ = require(&#x27;underscore&#x27;),
+isLinux = utils.<span class="apidocCodeKeywordSpan">isLinux</span>(),
+spawn,
+sudoopt = {
+    cachePassword: true,
+    prompt: &#x27;Additional global npm(s) about to be installed, set your root password: &#x27;,
+    spawnOptions: { /* other options for spawn */ }
+},
+cprocess,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.package-script.Utils.now" id="apidoc.element.package-script.Utils.now">
+        function <span class="apidocSignatureSpan">package-script.Utils.</span>now
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">now = function () {
+    return ((new Date()).format(&#x22;YYYY-MM-DD hh:mm:ss.S&#x22;));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+log2file: function (data) {
+
+    if (!isLog()) {
+        return undefined;
+    }
+
+    try {
+        _fs.appendFileSync(&#x22;pkgscript.log&#x22;, (_utils.<span class="apidocCodeKeywordSpan">now</span>() + &#x22;  &#x22; +
+data + &#x22;\n&#x22;), &#x22;utf8&#x22;);
+
+    } catch (e) {
+        console.error(_utils.now + &#x22; [package-script] Package Script, ERROR:&#x22;, e);
+    }
+},
+
+/**
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.package-script.init" id="apidoc.module.package-script.init">module package-script.init</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.package-script.init.init" id="apidoc.element.package-script.init.init">
+        function <span class="apidocSignatureSpan">package-script.</span>init
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">init = function (config) {
+    return initialize(config)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        key;
+
+    if (config) {
+
+        for (key in defaults) {
+            globalutils.set(key, ( (key in config) ? config[key] :  defaults[key] ));
+            if (jsutils) {
+                jsutils.<span class="apidocCodeKeywordSpan">init</span>(config);
+            }
+        }
+    }
+}
+
+// Initialization
+(function() {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.package-script.install" id="apidoc.module.package-script.install">module package-script.install</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.package-script.install.install" id="apidoc.element.package-script.install.install">
+        function <span class="apidocSignatureSpan">package-script.</span>install
+        <span class="apidocSignatureSpan">(config, opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">install = function (config, opt) {
+
+    var me = this,
+        configvar = {},
+        callback,
+        init;
+
+    if (opt) {
+        init = (opt.init || undefined);
+        callback = (opt.callback || undefined);
+    } else {
+        opt = {};
+    }
+
+    configvar.action = &#x22;install&#x22;;
+    configvar.isinstalled = false;
+    configvar.config = config,
+    configvar.global = ((init &#x26;&#x26; &#x27;global&#x27; in init) ? init.global : false);
+    configvar.debug = opt.debug;
+    configvar.depth = opt.depth;
+
+    if (init) {
+        this.init(init);
+    }
+
+    _packageProcess(configvar, function() {
+        if (this.data &#x26;&#x26; _.isArray(this.data) &#x26;&#x26; this.data.length &#x3e; 0) {
+            me.spawn(this.data, init, function(){
+                if (callback) {
+                    callback.call(me);
+                }
+            });
+        } else {
+            if (callback) {
+                callback.call(me);
+            }
+
+        }
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+          command: &#x22;npm&#x22;,
+          args: [&#x22;install&#x22;, &#x22;-g&#x22;, &#x22;bower&#x22;]
+      }
+
+  ]);
+
+#### Or check the install/uninstall methods
+require(&#x27;package-script&#x27;).<span class="apidocCodeKeywordSpan">install</span>([
+        {
+            admin:false,
+            name: &#x22;q&#x22;
+        }
+    ], {callback: function() {
+        // callback functionality in here
+     });
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.package-script.spawn" id="apidoc.module.package-script.spawn">module package-script.spawn</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.package-script.spawn.spawn" id="apidoc.element.package-script.spawn.spawn">
+        function <span class="apidocSignatureSpan">package-script.</span>spawn
+        <span class="apidocSignatureSpan">(config, init, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">spawn = function (config, init, callback) {
+
+    var me = this;
+
+    // first initialize
+    if (init) {
+        this.init(init);
+    }
+
+    logger.log2file(&#x22;\n\n************ Package Script  ************************************* process id: &#x22; + process.pid);
+
+    if (config &#x26;&#x26; _.isArray(config)) {
+        commands = commands.concat(config);
+        size = commands.length;
+        if (size &#x3e; 0) {
+            install(commands, function() {
+                logger.logall(&#x22;[package-script] process completed, see pkgscript.log for more information&#x22;);
+                if (callback) {
+                    callback.call(me);
+                }
+            });
+        }
+
+    } else {
+        logger.logall(&#x22;[package-script] No valid configuration for &#x27;install&#x27; function, see the docs for more information &#x22;);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+ &#x22;scripts&#x22;: {
+    &#x22;install&#x22;: &#x22;node installer.js&#x22;
+  }
+
+#### Then, in your javascript file:
+
+require(&#x27;package-script&#x27;).<span class="apidocCodeKeywordSpan">spawn</span>([
+      {
+          command: &#x22;npm&#x22;,
+          args: [&#x22;install&#x22;, &#x22;-g&#x22;, &#x22;grunt-cli&#x22;]
+      },
+      {
+          command: &#x22;npm&#x22;,
+          args: [&#x22;install&#x22;, &#x22;-g&#x22;, &#x22;bower&#x22;]
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.package-script.uninstall" id="apidoc.module.package-script.uninstall">module package-script.uninstall</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.package-script.uninstall.uninstall" id="apidoc.element.package-script.uninstall.uninstall">
+        function <span class="apidocSignatureSpan">package-script.</span>uninstall
+        <span class="apidocSignatureSpan">(config, opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">uninstall = function (config, opt) {
+
+    var me = this,
+        configvar = {},
+        callback,
+        init;
+
+    if (opt) {
+        init = (opt.init || undefined);
+        callback = (opt.callback || undefined);
+    } else {
+        opt = {};
+    }
+
+    configvar.action = &#x22;rm&#x22;;
+    configvar.isinstalled = true;
+    configvar.config = config,
+    configvar.global = ((init &#x26;&#x26; &#x27;global&#x27; in init) ? init.global : false);
+    configvar.debug = opt.debug;
+    configvar.depth = opt.depth;
+
+    if (init) {
+        this.init(init);
+    }
+
+    _packageProcess(configvar, function() {
+        if (this.data) {
+            me.spawn(this.data, init, function() {
+                if (callback) {
+                    callback.call(me);
+                }
+            });
+        }
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        args: [&#x22;--version&#x22;]
+    }
+]);
+}
+
+function test41() {
+var pkgscript = require(&#x27;./pkgscript.js&#x27;);
+pkgscript.<span class="apidocCodeKeywordSpan">uninstall</span>([
+    {
+        admin:true,
+        name: &#x22;bower&#x22;
+    },{
+        name: &#x22;grunt-cli&#x22;
+    }
+], {init: {global:true, log:true}});
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
