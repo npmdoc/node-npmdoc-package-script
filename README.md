@@ -1,4 +1,7 @@
-# api documentation for  [package-script (v0.0.8)](https://github.com/lastboy)  [![npm package](https://img.shields.io/npm/v/npmdoc-package-script.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-package-script) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-package-script.svg)](https://travis-ci.org/npmdoc/node-npmdoc-package-script)
+# npmdoc-package-script
+
+#### basic api documentation for  [package-script (v0.0.8)](https://github.com/lastboy)  [![npm package](https://img.shields.io/npm/v/npmdoc-package-script.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-package-script) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-package-script.svg)](https://travis-ci.org/npmdoc/node-npmdoc-package-script)
+
 #### Spawn external process in additional to the package install
 
 [![NPM](https://nodei.co/npm/package-script.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/package-script)
@@ -78,7 +81,8 @@
     "scripts": {
         "test": "node test.js"
     },
-    "version": "0.0.8"
+    "version": "0.0.8",
+    "bin": {}
 }
 ```
 
